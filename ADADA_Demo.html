@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pill Dispenser - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #f4f4f4;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+            padding: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #34495e;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .header {
+            background: white;
+            padding: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .prescriptions {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 300px !important;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Smart Pill Dispenser</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Prescriptions</li>
+            <li>Reminders</li>
+            <li>Analytics</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <p>Welcome, <b>John Doe</b></p>
+        </div>
+
+        <!-- Prescription Cards -->
+        <h2>My Prescriptions</h2>
+        <div class="prescriptions">
+            <div class="card">
+                <h3>Medicine: Paracetamol</h3>
+                <p><b>Dosage:</b> 500mg</p>
+                <p><b>Frequency:</b> 3 times a day</p>
+                <p><b>Remaining:</b> 7 days</p>
+            </div>
+
+            <div class="card">
+                <h3>Medicine: Amoxicillin</h3>
+                <p><b>Dosage:</b> 250mg</p>
+                <p><b>Frequency:</b> 2 times a day</p>
+                <p><b>Remaining:</b> 5 days</p>
+            </div>
+
+            <div class="card">
+                <h3>Medicine: Metformin</h3>
+                <p><b>Dosage:</b> 1000mg</p>
+                <p><b>Frequency:</b> Once a day</p>
+                <p><b>Remaining:</b> 14 days</p>
+            </div>
+        </div>
+
+        <!-- Medication Adherence Chart -->
+        <div class="chart-container">
+            <h2>Medication Adherence</h2>
+            <canvas id="adherenceChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart.js for Medication Adherence -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('adherenceChart').getContext('2d');
+        const adherenceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Feb 1', 'Feb 2', 'Feb 3', 'Feb 4', 'Feb 5', 'Feb 6', 'Feb 7'],
+                datasets: [{
+                    label: 'Doses Taken',
+                    data: [3, 2, 3, 3, 2, 3, 3],
+                    borderColor: '#3498db',
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 4
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
