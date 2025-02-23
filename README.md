@@ -11,7 +11,7 @@ Our Smart Pill Dispenser introduces a groundbreaking approach to medication adhe
 - **Hands-free, touchless operation** – ideal for elderly patients or individuals with limited dexterity (e.g., arthritis, Parkinson’s).
 - **Customizable prescription schedules** – syncs with a mobile app to adjust dosages in real-time.
 - **Error-proof dispensing** – reduces the risk of **overdosing or missing doses**, a common issue in medication non-adherence.
-- **AI-powered reminders & analytics** – tracks patient adherence and alerts caregivers or doctors if doses are skipped.
+- **Data-powered reminders & analytics** – tracks patient adherence and alerts caregivers or doctors if doses are skipped.
 
 By incorporating **IoT connectivity, insight-driven alerts, and a sleek, ergonomic design**, our solution **redefines medication management** with unparalleled creativity and originality.
 
